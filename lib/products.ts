@@ -13,12 +13,8 @@ export type Product = {
   badge?: string;
 };
 
-/**
- * Placeholders gerados via placehold.co (paleta dark + champagne).
- * Substituir pelas fotos reais antes de publicar — basta trocar os URLs em "images".
- */
-const ph = (label: string) =>
-  `https://placehold.co/1000x1000/1c1c22/d4b88a/png?font=playfair&text=${encodeURIComponent(label)}`;
+const u = (id: string, crop = "entropy") =>
+  `https://images.unsplash.com/${id}?w=1000&h=1000&fit=crop&crop=${crop}&q=80&auto=format`;
 
 export const products: Product[] = [
   // ── Pingentes ─────────────────────────────────────────────────────────
@@ -36,7 +32,11 @@ export const products: Product[] = [
       "Argola embutida",
       "Acompanha embalagem para presente",
     ],
-    images: [ph("Pingente\\nCoracao"), ph("Detalhe\\nCoracao"), ph("Verso\\nPolido")],
+    images: [
+      u("photo-1573408301185-9519f94816b4"),
+      u("photo-1515562141207-7a88fb7ce338"),
+      u("photo-1573408301185-9519f94816b4", "top"),
+    ],
     featured: true,
     badge: "Mais vendido",
   },
@@ -54,7 +54,11 @@ export const products: Product[] = [
       "Acabamento polido espelhado",
       "Argola reforçada",
     ],
-    images: [ph("Pingente\\nCruz"), ph("Cruz\\nPerfil"), ph("Detalhe\\nArgola")],
+    images: [
+      u("photo-1599643477877-530eb83abc8e"),
+      u("photo-1573408301185-9519f94816b4", "bottom"),
+      u("photo-1515562141207-7a88fb7ce338", "center"),
+    ],
   },
   {
     slug: "pingente-estrela-7-pontas",
@@ -70,7 +74,11 @@ export const products: Product[] = [
       "Cravação garra dupla",
       "Verifique a corrente compatível na descrição",
     ],
-    images: [ph("Estrela\\n7 Pontas"), ph("Cravacao\\nDetalhe"), ph("Verso")],
+    images: [
+      u("photo-1617038260897-41a1f14a8ca0"),
+      u("photo-1515562141207-7a88fb7ce338", "top"),
+      u("photo-1573408301185-9519f94816b4", "center"),
+    ],
     badge: "Novo",
   },
 
@@ -89,7 +97,11 @@ export const products: Product[] = [
       "Aros: 14 a 22 (consultar)",
       "Espessura do aro: 1,8 mm",
     ],
-    images: [ph("Anel\\nSolitario"), ph("Pedra\\n5 mm"), ph("Vista\\nLateral")],
+    images: [
+      u("photo-1611591437281-460bfbe1220a"),
+      u("photo-1605100804763-247f67b3557e"),
+      u("photo-1611591437281-460bfbe1220a", "top"),
+    ],
     featured: true,
   },
   {
@@ -106,7 +118,11 @@ export const products: Product[] = [
       "Espessura aprox.: 3 mm",
       "Disponível nos aros 14 a 24",
     ],
-    images: [ph("Anel\\nTrancado"), ph("Trança\\nMacro"), ph("No Dedo")],
+    images: [
+      u("photo-1605100804763-247f67b3557e"),
+      u("photo-1596944924616-7b38e7cfac36"),
+      u("photo-1605100804763-247f67b3557e", "bottom"),
+    ],
   },
   {
     slug: "anel-meia-alianca-cravejado",
@@ -122,7 +138,11 @@ export const products: Product[] = [
       "Cravação tipo trilho",
       "Aros: 14 a 22",
     ],
-    images: [ph("Meia\\nAlianca"), ph("Cravacao\\nLinha"), ph("Brilho")],
+    images: [
+      u("photo-1596944924616-7b38e7cfac36"),
+      u("photo-1611591437281-460bfbe1220a", "bottom"),
+      u("photo-1605100804763-247f67b3557e", "top"),
+    ],
     badge: "Edição limitada",
   },
 
@@ -141,7 +161,11 @@ export const products: Product[] = [
       "Elo veneziana 1,2 mm",
       "Fecho gaveta com trava de segurança",
     ],
-    images: [ph("Corrente\\nVeneziana"), ph("Elo\\n1.2 mm"), ph("Fecho\\nGaveta")],
+    images: [
+      u("photo-1602173574767-37ac01994b2a"),
+      u("photo-1599643478518-a784e5dc4c8f"),
+      u("photo-1602173574767-37ac01994b2a", "top"),
+    ],
     featured: true,
   },
   {
@@ -158,7 +182,11 @@ export const products: Product[] = [
       "Largura: 4 mm",
       "Fecho mosquetão reforçado",
     ],
-    images: [ph("Cubana\\n60 cm"), ph("Elo\\nAchatado"), ph("Fecho")],
+    images: [
+      u("photo-1599643478518-a784e5dc4c8f"),
+      u("photo-1602173574767-37ac01994b2a", "bottom"),
+      u("photo-1599643478518-a784e5dc4c8f", "top"),
+    ],
     badge: "Top",
   },
 
@@ -177,7 +205,11 @@ export const products: Product[] = [
       "Espessura: 1,5 mm",
       "Fecho click",
     ],
-    images: [ph("Argola\\nFina"), ph("Diametro\\n18 mm"), ph("Fecho\\nClick")],
+    images: [
+      u("photo-1630019852942-f89202989a59"),
+      u("photo-1589128777073-263566ae5e4d"),
+      u("photo-1630019852942-f89202989a59", "top"),
+    ],
   },
   {
     slug: "brinco-ponto-de-luz",
@@ -193,7 +225,11 @@ export const products: Product[] = [
       "Cravação 4 garras",
       "Tarraxa borboleta",
     ],
-    images: [ph("Ponto\\nde Luz"), ph("Pedra\\n4 mm"), ph("Tarraxa")],
+    images: [
+      u("photo-1589128777073-263566ae5e4d"),
+      u("photo-1630019852942-f89202989a59", "bottom"),
+      u("photo-1589128777073-263566ae5e4d", "top"),
+    ],
     featured: true,
   },
 ];
