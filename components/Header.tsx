@@ -10,8 +10,8 @@ export default function Header() {
           <Image
             src="/logo.jpeg"
             alt={site.name}
-            width={40}
-            height={40}
+            width={64}
+            height={64}
             className="rounded-full object-cover"
             priority
           />

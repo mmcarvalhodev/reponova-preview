@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { site, whatsappLink } from "@/lib/site";
 
 export default function Hero() {
@@ -7,29 +6,6 @@ export default function Hero() {
       className="relative overflow-hidden border-b"
       style={{ background: "#faf6f1", borderColor: "#e0d8cc" }}
     >
-      {/* Logo marca d'água — mix-blend-mode:multiply: fundo branco some, só o traço preto fica */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none select-none absolute"
-        style={{
-          top: "50%",
-          left: "16%",
-          transform: "translate(-50%, -50%)",
-          opacity: 0.13,
-          filter: "grayscale(100%)",
-          mixBlendMode: "multiply",
-        }}
-      >
-        <Image
-          src="/logo.jpeg"
-          alt=""
-          width={500}
-          height={500}
-          priority
-          className="object-contain"
-        />
-      </div>
-
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 md:py-28 text-center">
         {/* Eyebrow */}
         <div
