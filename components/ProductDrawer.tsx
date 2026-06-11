@@ -17,14 +17,17 @@ type Props = {
 export default function ProductDrawer({ slug, onClose }: Props) {
   const product = slug ? getProduct(slug) : null;
   const open = !!slug && !!product;
-  const { addItem } = useCart();
+  const { addItem, openCart } = useCart();
   const [added, setAdded] = useState(false);
 
   function handleAddToCart() {
     if (!product) return;
     addItem({ slug: product.slug, name: product.name, price: product.price, image: product.images[0] });
     setAdded(true);
-    setTimeout(() => setAdded(false), 2000);
+    setTimeout(() => {
+      setAdded(false);
+      openCart();
+    }, 800);
   }
 
   useEffect(() => {

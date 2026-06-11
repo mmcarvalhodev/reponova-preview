@@ -6,41 +6,39 @@ import { useCart } from "./CartProvider";
 import { formatPrice } from "@/lib/products";
 import { useEffect } from "react";
 
-type Props = { open: boolean; onClose: () => void };
-
-export default function CartDrawer({ open, onClose }: Props) {
-  const { items, removeItem, updateQty, total, count } = useCart();
+export default function CartDrawer() {
+  const { items, removeItem, updateQty, total, count, isCartOpen, closeCart } = useCart();
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    document.body.style.overflow = isCartOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [open]);
+  }, [isCartOpen]);
 
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") closeCart(); };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [onClose]);
+  }, [closeCart]);
 
   return (
     <>
       <div
         aria-hidden
-        onClick={onClose}
-        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        onClick={closeCart}
+        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${isCartOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       />
       <aside
         role="dialog"
         aria-modal
         aria-label="Carrinho"
-        className={`fixed top-0 right-0 h-full w-full max-w-md z-50 flex flex-col border-l border-default bg-bg-card transition-transform duration-300 ease-in-out ${open ? "translate-x-0 shadow-2xl" : "translate-x-full"}`}
+        className={`fixed top-0 right-0 h-full w-full max-w-md z-50 flex flex-col border-l border-default bg-bg-card transition-transform duration-300 ease-in-out ${isCartOpen ? "translate-x-0 shadow-2xl" : "translate-x-full"}`}
       >
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-default">
           <div className="font-serif text-xl text-silver-bright">
             Carrinho {count > 0 && <span className="text-base text-muted">({count} {count === 1 ? "item" : "itens"})</span>}
           </div>
-          <button onClick={onClose} className="p-2 rounded-full text-muted hover:text-silver-bright hover:bg-soft transition">
+          <button onClick={closeCart} className="p-2 rounded-full text-muted hover:text-silver-bright hover:bg-soft transition">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
               <path d="M18 6L6 18M6 6l12 12" />
             </svg>
@@ -56,7 +54,7 @@ export default function CartDrawer({ open, onClose }: Props) {
                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
               </svg>
               <p className="text-muted">Seu carrinho está vazio</p>
-              <button onClick={onClose} className="text-sm" style={{ color: "var(--champagne)" }}>
+              <button onClick={closeCart} className="text-sm" style={{ color: "var(--champagne)" }}>
                 Continuar comprando →
               </button>
             </div>
@@ -96,12 +94,12 @@ export default function CartDrawer({ open, onClose }: Props) {
             </div>
             <Link
               href="/checkout"
-              onClick={onClose}
+              onClick={closeCart}
               className="btn-primary w-full inline-flex items-center justify-center px-6 py-4 rounded-full font-medium"
             >
               Finalizar compra
             </Link>
-            <button onClick={onClose} className="w-full text-sm text-center text-muted hover:text-silver transition">
+            <button onClick={closeCart} className="w-full text-sm text-center text-muted hover:text-silver transition">
               Continuar comprando
             </button>
           </div>

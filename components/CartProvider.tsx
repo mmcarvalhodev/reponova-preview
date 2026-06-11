@@ -12,6 +12,9 @@ type CartCtx = {
   clearCart: () => void;
   total: number;
   count: number;
+  isCartOpen: boolean;
+  openCart: () => void;
+  closeCart: () => void;
 };
 
 const CartContext = createContext<CartCtx>({
@@ -22,11 +25,17 @@ const CartContext = createContext<CartCtx>({
   clearCart: () => {},
   total: 0,
   count: 0,
+  isCartOpen: false,
+  openCart: () => {},
+  closeCart: () => {},
 });
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [ready, setReady] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const openCart  = useCallback(() => setIsCartOpen(true),  []);
+  const closeCart = useCallback(() => setIsCartOpen(false), []);
 
   useEffect(() => {
     try {
@@ -70,6 +79,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       clearCart,
       total: cartTotal(items),
       count: cartCount(items),
+      isCartOpen,
+      openCart,
+      closeCart,
     }}>
       {children}
     </CartContext.Provider>
