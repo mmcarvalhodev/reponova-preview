@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Reponova — Preview de site de joias e prata
 
-## Getting Started
+Preview estático em Next.js 16 (App Router + Tailwind v4) para apresentar a um cliente a vitrine de uma joalheria de prata 925. Sem banco, sem admin, sem dependências externas — os 10 produtos e as 32 avaliações vivem em arquivos TypeScript versionados.
 
-First, run the development server:
+## Páginas
+
+- `/` — home com hero, vitrine de categorias, destaques, pilares, recém-chegadas
+- `/produtos` — catálogo com filtro por categoria (`?cat=pingentes|aneis|correntes|brincos`)
+- `/produtos/[slug]` — página de produto com galeria, ficha técnica, CTA WhatsApp, avaliações com média/distribuição/lista, e bloco "Você também pode gostar"
+
+## Onde editar o conteúdo
+
+| Editar… | Arquivo |
+|---|---|
+| Nome do site / WhatsApp / Instagram / cidade | `lib/site.ts` |
+| Produtos (nome, preço, ficha, fotos) | `lib/products.ts` |
+| Avaliações de clientes | `lib/reviews.ts` |
+| Paleta de cores / tipografia | `app/globals.css` |
+
+### Fotos dos produtos
+
+Os campos `images` em `lib/products.ts` apontam para `placehold.co` apenas como placeholder. Substituir por URLs reais (Cloudinary, Imgur, S3, ou caminhos em `/public/`) antes de mostrar ao cliente final.
+
+## Rodar local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# abre em http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploy no Vercel
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Push do repo pro GitHub
+2. Importar em [vercel.com/new](https://vercel.com/new)
+3. Sem variáveis de ambiente — o preview é 100% estático
+4. Deploy direto, ~30 segundos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Stack
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 16.2.9 (App Router, Turbopack)
+- React 19
+- Tailwind CSS v4
+- TypeScript estrito
+- Sem dependências server-side
