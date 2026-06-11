@@ -8,7 +8,7 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-6">
         <Link href="/" className="flex items-center gap-3 group">
           <Image
-            src="/logo.jpg"
+            src="/logo.jpeg"
             alt={site.name}
             width={40}
             height={40}
