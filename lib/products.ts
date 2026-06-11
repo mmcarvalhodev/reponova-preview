@@ -33,9 +33,9 @@ export const products: Product[] = [
       "Acompanha embalagem para presente",
     ],
     images: [
-      u("photo-1573408301185-9519f94816b4"),
       u("photo-1515562141207-7a88fb7ce338"),
-      u("photo-1573408301185-9519f94816b4", "top"),
+      u("photo-1599643477877-530eb83abc8e"),
+      u("photo-1515562141207-7a88fb7ce338", "top"),
     ],
     featured: true,
     badge: "Mais vendido",
@@ -120,8 +120,8 @@ export const products: Product[] = [
     ],
     images: [
       u("photo-1605100804763-247f67b3557e"),
-      u("photo-1596944924616-7b38e7cfac36"),
-      u("photo-1605100804763-247f67b3557e", "bottom"),
+      u("photo-1605100804763-247f67b3557e", "top"),
+      u("photo-1561828995-aa79a2db86dd"),
     ],
   },
   {
@@ -139,9 +139,9 @@ export const products: Product[] = [
       "Aros: 14 a 22",
     ],
     images: [
-      u("photo-1596944924616-7b38e7cfac36"),
-      u("photo-1611591437281-460bfbe1220a", "bottom"),
-      u("photo-1605100804763-247f67b3557e", "top"),
+      u("photo-1611591437281-460bfbe1220a"),
+      u("photo-1561828995-aa79a2db86dd"),
+      u("photo-1605100804763-247f67b3557e"),
     ],
     badge: "Edição limitada",
   },
@@ -183,9 +183,9 @@ export const products: Product[] = [
       "Fecho mosquetão reforçado",
     ],
     images: [
+      u("photo-1602173574767-37ac01994b2a"),
+      u("photo-1602173574767-37ac01994b2a", "top"),
       u("photo-1599643478518-a784e5dc4c8f"),
-      u("photo-1602173574767-37ac01994b2a", "bottom"),
-      u("photo-1599643478518-a784e5dc4c8f", "top"),
     ],
     badge: "Top",
   },
