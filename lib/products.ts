@@ -206,7 +206,7 @@ export const products: Product[] = [
       "Fecho click",
     ],
     images: [
-      u("photo-1680181362119-5c9bf196805f"),
+      u("photo-1535632787350-4e68ef0ac584"),
       u("photo-1693212793204-bcea856c75fe"),
       u("photo-1716461534906-d31a17008801"),
     ],

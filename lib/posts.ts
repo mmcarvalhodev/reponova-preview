@@ -20,7 +20,7 @@ export const posts: Post[] = [
       "Do escritório à festa, saiba como escolher o par de brincos em prata 925 que vai completar o seu look com elegância e sem exageros.",
     date: "2026-06-05",
     readingMinutes: 4,
-    coverImage: u("photo-1680181362119-5c9bf196805f"),
+    coverImage: u("photo-1535632787350-4e68ef0ac584"),
     category: "Estilo",
     content: `
 Os brincos são a joia mais democrática que existe. Um par certo eleva qualquer look — e um par errado pode quebrar uma produção inteira. A boa notícia é que a prata 925 é incrivelmente versátil: o tom frio e o brilho limpo funcionam tanto com roupas formais quanto com looks casuais do dia a dia.
