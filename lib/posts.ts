@@ -20,7 +20,7 @@ export const posts: Post[] = [
       "Do escritório à festa, saiba como escolher o par de brincos em prata 925 que vai completar o seu look com elegância e sem exageros.",
     date: "2026-06-05",
     readingMinutes: 4,
-    coverImage: u("photo-1630019852942-f89202989a59"),
+    coverImage: u("photo-1680181362119-5c9bf196805f"),
     category: "Estilo",
     content: `
 Os brincos são a joia mais democrática que existe. Um par certo eleva qualquer look — e um par errado pode quebrar uma produção inteira. A boa notícia é que a prata 925 é incrivelmente versátil: o tom frio e o brilho limpo funcionam tanto com roupas formais quanto com looks casuais do dia a dia.
@@ -55,7 +55,7 @@ Prata escurece com o tempo em contato com o suor, perfumes e cremes. Para manter
       "Solitário, trançado, meia aliança — cada modelo de anel conta uma história diferente. Descubra qual combina mais com você e com a ocasião.",
     date: "2026-05-28",
     readingMinutes: 5,
-    coverImage: u("photo-1611591437281-460bfbe1220a"),
+    coverImage: u("photo-1589674781759-c21c37956a44"),
     category: "Guia",
     content: `
 O anel é uma das joias com mais carga simbólica. Ao mesmo tempo, é um acessório extremamente funcional — está presente no nosso campo visual o tempo todo, já que olhamos para as mãos dezenas de vezes por dia. Escolher bem o modelo faz diferença tanto no simbolismo quanto no estilo.
@@ -92,7 +92,7 @@ Muita gente compra anel sem saber o próprio aro. A forma mais simples de medir:
       "A arte de combinar correntes e pingentes em prata 925 é mais simples do que parece. Aprenda a criar camadas harmoniosas e looks com personalidade.",
     date: "2026-05-15",
     readingMinutes: 4,
-    coverImage: u("photo-1602173574767-37ac01994b2a"),
+    coverImage: u("photo-1676329945867-01c9975aa9d1"),
     category: "Estilo",
     content: `
 Corrente e pingente parecem uma dupla simples — e são. Mas quando bem escolhidos, eles criam looks que parecem elaborados sem muito esforço. A prata tem uma vantagem clara aqui: o tom frio combina com praticamente todas as cores de roupa e com qualquer estação do ano.
