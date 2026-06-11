@@ -1,12 +1,12 @@
 export const site = {
-  name: "Reponova",
+  name: "Tutupratas",
   tagline: "Joias e prata 925 com alma artesanal",
   description:
     "Coleção autoral de joias em prata esterlina. Peças feitas à mão, polidas e pensadas pra durar.",
   whatsappNumber: "5511999999999",
   whatsappLabel: "(11) 99999-9999",
-  email: "contato@reponova.com.br",
-  instagram: "@reponova",
+  email: "contato@tutupratas.com.br",
+  instagram: "@tutupratas",
   city: "São Paulo, SP",
 };
 

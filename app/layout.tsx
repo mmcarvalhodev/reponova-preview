@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Reponova — Joias e Prata Artesanal",
+  title: "Tutupratas — Joias e Prata Artesanal",
   description:
     "Coleção autoral de joias em prata 925. Pingentes, anéis, correntes e brincos para o uso diário ou de presente.",
 };

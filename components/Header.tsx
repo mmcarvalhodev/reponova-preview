@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { site, whatsappLink, CATEGORIES } from "@/lib/site";
 
 export default function Header() {
@@ -6,7 +7,14 @@ export default function Header() {
     <header className="sticky top-0 z-40 border-b border-default bg-bg/85 backdrop-blur">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-6">
         <Link href="/" className="flex items-center gap-3 group">
-          <Logo />
+          <Image
+            src="/logo.jpg"
+            alt={site.name}
+            width={40}
+            height={40}
+            className="rounded-full object-cover"
+            priority
+          />
           <span className="font-serif text-2xl tracking-wide silver-gradient">
             {site.name}
           </span>
@@ -41,28 +49,6 @@ export default function Header() {
         </a>
       </div>
     </header>
-  );
-}
-
-function Logo() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
-      <defs>
-        <linearGradient id="lg" x1="0" y1="0" x2="40" y2="40">
-          <stop offset="0%" stopColor="#eaecef" />
-          <stop offset="50%" stopColor="#b8babe" />
-          <stop offset="100%" stopColor="#eaecef" />
-        </linearGradient>
-      </defs>
-      <circle cx="20" cy="20" r="18" stroke="url(#lg)" strokeWidth="1.5" />
-      <path
-        d="M14 14 L26 14 L20 28 Z"
-        fill="none"
-        stroke="url(#lg)"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }
 
