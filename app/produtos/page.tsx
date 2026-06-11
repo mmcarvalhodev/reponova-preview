@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ProductCard from "@/components/ProductCard";
+import ProductsGrid from "@/components/ProductsGrid";
 import { products } from "@/lib/products";
 import { CATEGORIES, type CategorySlug } from "@/lib/site";
 import Link from "next/link";
@@ -39,7 +39,7 @@ export default async function ProdutosPage({
           </div>
         </section>
 
-        <section className="border-b border-default">
+        <section>
           <div className="max-w-6xl mx-auto px-6 py-10">
             <div className="flex flex-wrap items-center gap-2 mb-10 justify-center">
               <FilterPill href="/produtos" active={!activeCat} label="Todas" />
@@ -58,11 +58,10 @@ export default async function ProdutosPage({
                 Nenhuma peça nessa categoria por enquanto.
               </p>
             ) : (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                {list.map((p) => (
-                  <ProductCard key={p.slug} product={p} />
-                ))}
-              </div>
+              <ProductsGrid
+                products={list}
+                cols="grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+              />
             )}
           </div>
         </section>

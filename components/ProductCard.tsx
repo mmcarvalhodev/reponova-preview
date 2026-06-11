@@ -4,15 +4,17 @@ import { formatPrice, type Product } from "@/lib/products";
 import { averageRating, reviewCount } from "@/lib/reviews";
 import StarRating from "./StarRating";
 
-export default function ProductCard({ product }: { product: Product }) {
+type Props = {
+  product: Product;
+  onClick?: () => void;
+};
+
+export default function ProductCard({ product, onClick }: Props) {
   const avg = averageRating(product.slug);
   const count = reviewCount(product.slug);
 
-  return (
-    <Link
-      href={`/produtos/${product.slug}`}
-      className="card group rounded-xl overflow-hidden flex flex-col"
-    >
+  const inner = (
+    <>
       <div className="relative aspect-square overflow-hidden bg-soft">
         <Image
           src={product.images[0]}
@@ -49,6 +51,26 @@ export default function ProductCard({ product }: { product: Product }) {
           </span>
         </div>
       </div>
+    </>
+  );
+
+  if (onClick) {
+    return (
+      <button
+        onClick={onClick}
+        className="card group rounded-xl overflow-hidden flex flex-col text-left w-full cursor-pointer"
+      >
+        {inner}
+      </button>
+    );
+  }
+
+  return (
+    <Link
+      href={`/produtos/${product.slug}`}
+      className="card group rounded-xl overflow-hidden flex flex-col"
+    >
+      {inner}
     </Link>
   );
 }

@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import CategoryShowcase from "@/components/CategoryShowcase";
-import ProductCard from "@/components/ProductCard";
+import ProductsGrid from "@/components/ProductsGrid";
 import AboutStrip from "@/components/AboutStrip";
 import Footer from "@/components/Footer";
 import { featuredProducts, products } from "@/lib/products";
@@ -36,11 +36,7 @@ export default function HomePage() {
                 Ver coleção completa →
               </Link>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-              {featured.map((p) => (
-                <ProductCard key={p.slug} product={p} />
-              ))}
-            </div>
+            <ProductsGrid products={featured} />
           </div>
         </section>
 
@@ -64,11 +60,7 @@ export default function HomePage() {
                 Ver tudo →
               </Link>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-              {recent.map((p) => (
-                <ProductCard key={p.slug} product={p} />
-              ))}
-            </div>
+            <ProductsGrid products={recent} />
           </div>
         </section>
       </main>
