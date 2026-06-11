@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { site, whatsappLink, CATEGORIES } from "@/lib/site";
+import CartButton from "./CartButton";
 
 export default function Header() {
   return (
@@ -41,15 +42,18 @@ export default function Header() {
           ))}
         </nav>
 
-        <a
-          href={whatsappLink(`Olá! Vim pelo site da ${site.name} e gostaria de mais informações.`)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-primary inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm"
-        >
-          <WhatsappIcon />
-          <span className="hidden sm:inline">WhatsApp</span>
-        </a>
+        <div className="flex items-center gap-2">
+          <CartButton />
+          <a
+            href={whatsappLink(`Olá! Vim pelo site da ${site.name} e gostaria de mais informações.`)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm"
+          >
+            <WhatsappIcon />
+            <span className="hidden sm:inline">WhatsApp</span>
+          </a>
+        </div>
       </div>
     </header>
   );

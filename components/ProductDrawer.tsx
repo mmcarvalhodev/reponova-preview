@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getProduct, formatPrice } from "@/lib/products";
 import { whatsappLink, CATEGORIES } from "@/lib/site";
 import { averageRating, reviewCount } from "@/lib/reviews";
+import { useCart } from "./CartProvider";
 import StarRating from "./StarRating";
 import ReviewsBlock from "./ReviewsBlock";
 import ProductGallery from "./ProductGallery";
@@ -16,6 +17,15 @@ type Props = {
 export default function ProductDrawer({ slug, onClose }: Props) {
   const product = slug ? getProduct(slug) : null;
   const open = !!slug && !!product;
+  const { addItem } = useCart();
+  const [added, setAdded] = useState(false);
+
+  function handleAddToCart() {
+    if (!product) return;
+    addItem({ slug: product.slug, name: product.name, price: product.price, image: product.images[0] });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 2000);
+  }
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -138,12 +148,28 @@ export default function ProductDrawer({ slug, onClose }: Props) {
                 </ul>
               </div>
 
-              {/* CTA */}
+              {/* CTAs */}
+              <button
+                onClick={handleAddToCart}
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-semibold transition"
+                style={{
+                  background: added ? "rgba(16,200,100,0.15)" : "var(--bg-soft)",
+                  border: `1px solid ${added ? "#10c864" : "var(--champagne)"}`,
+                  color: added ? "#10c864" : "var(--champagne)",
+                }}
+              >
+                {added ? (
+                  <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg> Adicionado ao carrinho!</>
+                ) : (
+                  <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Adicionar ao carrinho</>
+                )}
+              </button>
+
               <a
                 href={whatsappLink(whatsappMsg)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full"
+                className="btn-primary w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full mt-3"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20.52 3.48A12 12 0 003.45 20.42L2 22l1.66-1.42a12 12 0 0016.86-17.1zM12 20a8 8 0 01-4.07-1.11l-.29-.17-3 .8.8-2.92-.18-.3A8 8 0 1112 20z" />
