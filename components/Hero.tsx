@@ -1,9 +1,31 @@
+import Image from "next/image";
 import { site, whatsappLink } from "@/lib/site";
 
 export default function Hero() {
   return (
-    <section className="hero-grad border-b border-default">
-      <div className="max-w-6xl mx-auto px-6 py-20 md:py-28 text-center">
+    <section className="hero-grad border-b border-default relative overflow-hidden">
+      {/* Logo marca d'água — levemente à esquerda do centro, bem suave */}
+      <div
+        className="absolute inset-0 pointer-events-none select-none"
+        aria-hidden="true"
+      >
+        <div
+          className="absolute top-1/2 -translate-y-1/2"
+          style={{ left: "28%", transform: "translate(-50%, -50%)" }}
+        >
+          <Image
+            src="/logo.jpeg"
+            alt=""
+            width={520}
+            height={520}
+            priority
+            className="object-contain"
+            style={{ opacity: 0.07, filter: "grayscale(100%) brightness(2)" }}
+          />
+        </div>
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 md:py-28 text-center">
         <div className="text-[11px] font-semibold uppercase tracking-[0.35em] text-champagne mb-6">
           Prata 925 · Feita à mão
         </div>
