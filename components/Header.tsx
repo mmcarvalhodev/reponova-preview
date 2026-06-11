@@ -27,6 +27,9 @@ export default function Header() {
           <Link href="/produtos" className="text-silver hover:text-silver-bright transition">
             Coleção
           </Link>
+          <Link href="/blog" className="text-silver hover:text-silver-bright transition">
+            Blog
+          </Link>
           {CATEGORIES.map((c) => (
             <Link
               key={c.slug}

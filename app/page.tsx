@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import CategoryShowcase from "@/components/CategoryShowcase";
 import ProductsGrid from "@/components/ProductsGrid";
 import AboutStrip from "@/components/AboutStrip";
+import BlogStrip from "@/components/BlogStrip";
 import Footer from "@/components/Footer";
 import { featuredProducts, products } from "@/lib/products";
 import Link from "next/link";
@@ -63,6 +64,8 @@ export default function HomePage() {
             <ProductsGrid products={recent} />
           </div>
         </section>
+
+        <BlogStrip />
       </main>
       <Footer />
     </>
